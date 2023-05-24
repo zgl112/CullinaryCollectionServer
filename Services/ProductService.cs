@@ -47,9 +47,13 @@ namespace baseAPI.Services
                 Caption = string.IsNullOrWhiteSpace(product.Caption) ? dbProduct.Caption : product.Caption,
                 Description = string.IsNullOrWhiteSpace(product.Description) ? dbProduct.Description : product.Description,
                 Image = string.IsNullOrWhiteSpace(product.Image) ? dbProduct.Image : product.Image,
+                History = string.IsNullOrWhiteSpace(product.History) ? dbProduct.History : product.History,
+                HistoryImage = string.IsNullOrWhiteSpace(product.HistoryImage) ? dbProduct.HistoryImage : product.HistoryImage,
                 Price = product.Price == 0 ? dbProduct.Price : product.Price,
                 Stock = product.Stock == 0 ? dbProduct.Stock : product.Stock,
-                Tags = string.IsNullOrWhiteSpace(product.Tags) ? dbProduct.Tags : product.Tags
+                Tags = string.IsNullOrWhiteSpace(product.Tags) ? dbProduct.Tags : product.Tags,
+                Country = string.IsNullOrWhiteSpace(product.Country) ? dbProduct.Country : product.Country,
+
             };
 
             await _context.Products.ReplaceOneAsync(u => u.Id == id, updatedProduct);
