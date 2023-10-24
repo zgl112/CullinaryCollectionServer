@@ -15,10 +15,6 @@ namespace baseAPI.Utils
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(JwtSecret);
-            if (key.Length < JwtKeySize)
-            {
-                throw new ArgumentException($"The JWT secret key must be at least {JwtKeySize} bytes.");
-            }
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
